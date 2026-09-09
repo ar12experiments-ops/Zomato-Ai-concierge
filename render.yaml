@@ -1,15 +1,25 @@
 services:
   - type: web
-    name: zomato-dining-performance-lab
+    name: zomato-ai-concierge
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
+      - key: SUPABASE_URL
+        value: https://qyxksguifghtppubcsts.supabase.co
+      - key: SUPABASE_KEY
+        sync: false
+      - key: DATA_SOURCE
+        value: supabase
       - key: GEMINI_API_KEY
         sync: false
       - key: GEMINI_MODEL
         value: gemini-2.5-flash
       - key: MAX_CANDIDATES_FOR_LLM
         value: 15
+      - key: DEFAULT_LOCATION
+        value: Bangalore
