@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zomato | AI Dining Intelligence</title>
+  <meta name="description" content="Next-generation AI restaurant recommendation & dining intelligence powered by real culinary data and LLM reasoning." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="uh-nav-container">
+    <div class="uh-nav-inner">
+      <a href="/" class="uh-brand-wrap">
+        <div class="uh-brand-icon">🍽️</div>
+        <div class="uh-brand-title">
+          Zomato <span style="font-weight:400; color:var(--text-secondary);">// AI CONCIERGE</span>
+        </div>
+        <span class="uh-brand-tag">v2.0</span>
+      </a>
+
+      <ul class="uh-nav-tabs">
+        <li><a href="#cockpit" class="uh-nav-link active"><span class="uh-nav-dot"></span>Experience Finder</a></li>
+        <li><a href="#telemetry" class="uh-nav-link">City Overview</a></li>
+        <li><a href="#results-section" class="uh-nav-link">AI Recommendations</a></li>
+      </ul>
+
+      <a href="#cockpit" class="uh-cta-btn">Find Restaurants</a>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       MAIN CONTAINER
+       ========================================================================= -->
+  <main class="uh-main-content">
+
+    <!-- HERO SECTION -->
+    <section class="uh-hero-card">
+      <div class="uh-status-badge" id="source-badge">
+        <span class="pulse-dot"></span>
+        <span id="source-badge-text">LIVE INTELLIGENCE // SUPABASE CLOUD DB</span>
+      </div>
+
+      <h1 class="uh-hero-title">
+        SMART DINING <span class="uh-title-gradient">INTELLIGENCE</span>
+      </h1>
+
+      <p class="uh-hero-description">
+        The future of precision dining discovery. An AI-powered concierge combining 12,000+ verified Zomato restaurant records with Large Language Model qualitative reasoning.
+      </p>
+
+      <div class="uh-signal-band">
+        <span class="uh-signal-pill">🍕 WOODFIRED NAPOLETANA</span>
+        <span class="uh-signal-pill">🍷 ARTISAN WINE & PAIRINGS</span>
+        <span class="uh-signal-pill">🥘 HYDERABADI DUM BIRYANI</span>
+        <span class="uh-signal-pill">🌿 FARM-TO-TABLE ORGANIC</span>
+        <span class="uh-signal-pill">⭐ 4.8 TOP RATED</span>
+        <span class="uh-signal-pill">☕ SPECIALTY ROASTERY COFFEE</span>
+        <span class="uh-signal-pill">🍔 SMASH BURGERS & SIDES</span>
+      </div>
+    </section>
+
+    <!-- METRICS STATS GRID -->
+    <section id="telemetry" class="uh-metrics-row">
+      <div class="uh-metric-card">
+        <div class="uh-metric-code">RESTAURANT_INDEX // 01</div>
+        <div class="uh-metric-value" id="stat-restaurants">12,151</div>
+        <div class="uh-metric-label">Curated Dining Venues</div>
+      </div>
+      <div class="uh-metric-card">
+        <div class="uh-metric-code">GEO_COVERAGE // 02</div>
+        <div class="uh-metric-value" id="stat-locations">93+</div>
+        <div class="uh-metric-label">Active Food Districts</div>
+      </div>
+      <div class="uh-metric-card">
+        <div class="uh-metric-code">CUISINE_STYLES // 03</div>
+        <div class="uh-metric-value" id="stat-cuisines">65+</div>
+        <div class="uh-metric-label">Global Culinary Styles</div>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER COCKPIT -->
+    <section id="cockpit" class="uh-cockpit-section">
+      <div class="uh-cockpit-header">
+        <div>
+          <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--zomato-red); letter-spacing:0.1em; text-transform:uppercase;">
+            PREFERENCE SELECTOR // SMART FILTERS
+          </div>
+          <h2 class="uh-cockpit-title">DINING PREFERENCES</h2>
+          <p class="uh-cockpit-sub">Select your location, budget, preferred cuisines, and desired dining vibe</p>
+        </div>
+      </div>
+
+      <!-- Experience Presets -->
+      <div style="margin-bottom:0.75rem;">
+        <label class="uh-field-label">CURATED EXPERIENCES</label>
+      </div>
+      <div class="uh-preset-grid" id="preset-container">
+        <button type="button" class="uh-preset-chip active" data-preset="custom">Custom Search</button>
+        <button type="button" class="uh-preset-chip" data-preset="romantic">🍷 Romantic Date Night (Italian & Wine)</button>
+        <button type="button" class="uh-preset-chip" data-preset="fastfood">🍔 Quick Bites & Street Food</button>
+        <button type="button" class="uh-preset-chip" data-preset="family">👨‍👩‍👧 Family Gathering & Feasts</button>
+        <button type="button" class="uh-preset-chip" data-preset="work">💻 Quiet Work Cafe & Roastery</button>
+        <button type="button" class="uh-preset-chip" data-preset="brewpub">🍻 Craft Brew & Rooftop Vibes</button>
+      </div>
+
+      <!-- Controls Form Grid -->
+      <form id="recommendation-form" onsubmit="event.preventDefault(); triggerRecommendation();">
+        <div class="uh-form-grid">
+          
+          <!-- Locality Selector -->
+          <div class="uh-field-group">
+            <label class="uh-field-label" for="location-select">📍 NEIGHBORHOOD / LOCALITY</label>
+            <select id="location-select" class="uh-select">
+              <option value="">All Neighborhoods / City-wide</option>
+              <option value="Indiranagar" selected>Indiranagar</option>
+              <option value="Koramangala">Koramangala</option>
+              <option value="UB City">UB City / Lavelle Road</option>
+              <option value="Malleshwaram">Malleshwaram</option>
+              <option value="Whitefield">Whitefield</option>
+              <option value="Connaught Place">Connaught Place</option>
+            </select>
+          </div>
+
+          <!-- Budget Matrix -->
+          <div class="uh-field-group">
+            <label class="uh-field-label">💰 BUDGET FOR TWO</label>
+            <div class="uh-budget-matrix" id="budget-matrix">
+              <button type="button" class="uh-budget-btn active" data-budget="Any">Any</button>
+              <button type="button" class="uh-budget-btn" data-budget="Low">Budget (&lt;₹400)</button>
+              <button type="button" class="uh-budget-btn" data-budget="Medium">Mid (₹400-1200)</button>
+              <button type="button" class="uh-budget-btn" data-budget="High">Fine Dining (&gt;₹1200)</button>
+            </div>
+            <input type="hidden" id="budget-input" value="Any" />
+          </div>
+
+          <!-- Quality Slider -->
+          <div class="uh-field-group">
+            <label class="uh-field-label" for="rating-slider">⭐ MINIMUM RATING SCORE</label>
+            <div class="uh-slider-wrap">
+              <input type="range" id="rating-slider" class="uh-slider" min="3.0" max="5.0" step="0.1" value="4.0" oninput="updateRatingDisplay(this.value)" />
+              <span id="rating-display" class="uh-slider-val">4.0 ★</span>
+            </div>
+          </div>
+
+          <!-- Cuisine Filter -->
+          <div class="uh-field-group">
+            <label class="uh-field-label" for="cuisine-select">🍕 CUISINE & FLAVORS</label>
+            <select id="cuisine-select" class="uh-select">
+              <option value="">Any Cuisine / Flexible</option>
+              <option value="Italian">Italian / Pizza / Pasta</option>
+              <option value="North Indian">North Indian / Mughlai</option>
+              <option value="Biryani">Biryani & Kebabs</option>
+              <option value="South Indian">South Indian & Filter Coffee</option>
+              <option value="Chinese">Chinese & Pan-Asian</option>
+              <option value="Continental">Continental & European</option>
+              <option value="Cafe">Cafe & Artisan Bakery</option>
+              <option value="Fast Food">Fast Food & Burgers</option>
+              <option value="Desserts">Desserts & Ice Cream</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Qualitative Vibe Specs -->
+        <div class="uh-field-group" style="margin-bottom: 2rem;">
+          <label class="uh-field-label" for="vibe-input">✨ AMBIANCE, VIBE & DIETARY PREFERENCES</label>
+          <textarea id="vibe-input" class="uh-textarea" placeholder="e.g. Cozy outdoor candlelit patio, woodfired oven pizza, lively music, artisan coffee roastery..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn" class="uh-execute-btn">
+          <span>✨ DISCOVER RESTAURANTS WITH AI</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- =========================================================================
+         RECOMMENDATIONS / BENCHMARK RESULTS CONTAINER
+         ========================================================================= -->
+    <section id="results-section">
+      <div class="uh-results-header">
+        <div class="uh-results-tag" id="results-tag">FEATURED PICKS // POPULAR IN BANGALORE</div>
+        <h2 class="uh-results-title" id="results-title">TOP RATED RESTAURANTS</h2>
+      </div>
+
+      <!-- Summary Callout -->
+      <div id="summary-container" style="display: none;"></div>
+
+      <!-- Cards Container -->
+      <div id="cards-container">
+        <!-- Loading Skeleton or Initial Benchmarks injected via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

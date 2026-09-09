@@ -1,0 +1,822 @@
+/* ==========================================================================
+   ZOMATO AI INTELLIGENCE - LIGHT GLASSMORPHIC DESIGN SYSTEM
+   Ultrahuman-Inspired Premium Aesthetics / Luminous Light Glass Theme
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Luminous Light Backgrounds & Glass Surfaces */
+  --bg-canvas: #F8F9FC;
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-card-hover: rgba(255, 255, 255, 0.88);
+  --bg-card-solid: #FFFFFF;
+  --bg-glass-input: rgba(255, 255, 255, 0.65);
+  
+  /* Glass Borders & Reflections */
+  --border-glass: rgba(255, 255, 255, 0.9);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-hover: rgba(226, 55, 68, 0.35);
+  --border-focus: rgba(226, 55, 68, 0.5);
+  
+  /* Signature Brand Accents */
+  --zomato-red: #E23744;
+  --zomato-red-hover: #D32332;
+  --zomato-red-light: #FFF0F2;
+  --emerald-rating: #16A34A;
+  --emerald-light: #F0FDF4;
+  --gold-accent: #F59E0B;
+  --gold-light: #FEFBE8;
+  
+  /* Typography Colors */
+  --text-primary: #18181B;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  
+  /* Font Families */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Geometry & Shadows */
+  --radius-hero: 28px;
+  --radius-card: 22px;
+  --radius-inner: 14px;
+  --radius-pill: 9999px;
+  
+  --shadow-glass: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-elevated: 0 18px 42px rgba(226, 55, 68, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-hero: 0 20px 50px rgba(226, 55, 68, 0.12), 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
+  
+  /* Luminous Ambient Background Glows */
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(226, 55, 68, 0.08) 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 15% 60%, rgba(22, 163, 74, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 75% 85%, rgba(226, 55, 68, 0.05) 0%, transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION BAR (FROSTED GLASS)
+   ========================================================================== */
+.uh-nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  background: rgba(255, 255, 255, 0.78);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.02);
+  padding: 1rem 2rem;
+}
+
+.uh-nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uh-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.uh-brand-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #E23744 0%, #C91C2A 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(226, 55, 68, 0.3);
+}
+
+.uh-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.uh-brand-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--zomato-red);
+  background: var(--zomato-red-light);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(226, 55, 68, 0.2);
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+.uh-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.uh-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.uh-nav-link:hover, .uh-nav-link.active {
+  color: var(--text-primary);
+}
+
+.uh-nav-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--zomato-red);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(226, 55, 68, 0.6);
+}
+
+.uh-cta-btn {
+  background: linear-gradient(135deg, #E23744 0%, #C91C2A 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(226, 55, 68, 0.28);
+  transition: all 0.25s ease;
+}
+
+.uh-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(226, 55, 68, 0.4);
+}
+
+/* ==========================================================================
+   MAIN WRAPPER & CONTAINER
+   ========================================================================== */
+.uh-main-content {
+  max-width: 1240px;
+  margin: 2.2rem auto 5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   HERO CARD (LUMINOUS FROSTED GLASS)
+   ========================================================================== */
+.uh-hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 240, 242, 0.75) 100%);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-hero);
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-hero);
+  margin-bottom: 2.5rem;
+}
+
+.uh-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(226, 55, 68, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.uh-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--zomato-red);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--zomato-red);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(226, 55, 68, 0.6);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.6; }
+}
+
+.uh-hero-title {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.uh-title-gradient {
+  background: linear-gradient(135deg, #E23744 0%, #C91C2A 60%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.uh-hero-description {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 740px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Signal Pills Band */
+.uh-signal-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.uh-signal-pill {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-primary);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.uh-signal-pill:hover {
+  background: var(--zomato-red-light);
+  border-color: rgba(226, 55, 68, 0.3);
+  color: var(--zomato-red);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   METRIC STATS GRID (FROSTED GLASS TILES)
+   ========================================================================== */
+.uh-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.uh-metric-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-card);
+  padding: 1.6rem 1.8rem;
+  box-shadow: var(--shadow-glass);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uh-metric-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-elevated);
+}
+
+.uh-metric-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--zomato-red);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.uh-metric-value {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.uh-metric-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   DIAGNOSTIC SEARCH & FILTER COCKPIT (FROSTED GLASS)
+   ========================================================================== */
+.uh-cockpit-section {
+  background: var(--bg-card);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-glass);
+  margin-bottom: 3rem;
+}
+
+.uh-cockpit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.uh-cockpit-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.uh-cockpit-sub {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+/* Protocol Presets Grid */
+.uh-preset-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.uh-preset-chip {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.uh-preset-chip:hover {
+  background: var(--zomato-red-light);
+  color: var(--zomato-red);
+  border-color: rgba(226, 55, 68, 0.3);
+  transform: translateY(-1px);
+}
+
+.uh-preset-chip.active {
+  background: var(--zomato-red-light);
+  border-color: var(--zomato-red);
+  color: var(--zomato-red);
+  box-shadow: 0 4px 12px rgba(226, 55, 68, 0.15);
+}
+
+/* Form Controls */
+.uh-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.uh-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.uh-field-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--zomato-red);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.uh-select, .uh-input, .uh-textarea {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-inner);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.85rem 1.1rem;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.uh-select:focus, .uh-input:focus, .uh-textarea:focus {
+  border-color: var(--zomato-red);
+  box-shadow: 0 0 0 3px rgba(226, 55, 68, 0.15);
+}
+
+.uh-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Budget Matrix */
+.uh-budget-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.uh-budget-btn {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--radius-inner);
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.uh-budget-btn:hover {
+  background: #F4F4F5;
+  color: var(--text-primary);
+}
+
+.uh-budget-btn.active {
+  background: var(--zomato-red-light);
+  border-color: var(--zomato-red);
+  color: var(--zomato-red);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(226, 55, 68, 0.15);
+}
+
+/* Range Slider */
+.uh-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.uh-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #E4E4E7;
+  border-radius: var(--radius-pill);
+  outline: none;
+}
+
+.uh-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--zomato-red);
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(226, 55, 68, 0.4);
+  border: 2px solid #FFFFFF;
+  transition: transform 0.1s ease;
+}
+
+.uh-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+}
+
+.uh-slider-val {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--emerald-rating);
+  min-width: 48px;
+}
+
+/* Primary Execution Trigger */
+.uh-execute-btn {
+  background: linear-gradient(135deg, #E23744 0%, #C91C2A 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(226, 55, 68, 0.35);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.uh-execute-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(226, 55, 68, 0.45);
+}
+
+.uh-execute-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   RECOMMENDATION CARDS (LUMINOUS FROSTED GLASS)
+   ========================================================================== */
+.uh-results-header {
+  margin-bottom: 1.8rem;
+}
+
+.uh-results-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--zomato-red);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.uh-results-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-top: 0.2rem;
+}
+
+/* Summary Banner */
+.uh-summary-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--border-glass);
+  border-left: 5px solid var(--zomato-red);
+  border-radius: var(--radius-card);
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-glass);
+}
+
+.uh-summary-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.uh-summary-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Restaurant Card */
+.uh-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-card);
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: var(--shadow-glass);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.uh-card:hover {
+  transform: translateY(-4px) scale(1.004);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-elevated);
+}
+
+.uh-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.uh-rank-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--zomato-red);
+  background: var(--zomato-red-light);
+  border: 1px solid rgba(226, 55, 68, 0.2);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.uh-card-name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.uh-card-locality {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.uh-rating-badge {
+  background: var(--emerald-rating);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  padding: 6px 14px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+}
+
+.uh-cost-tag {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  text-align: right;
+}
+
+.uh-cuisines-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.uh-cuisine-tag {
+  background: #F4F4F5;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* AI Dining Verdict Box (Warm Frosted Glass) */
+.uh-verdict-card {
+  background: linear-gradient(135deg, rgba(254, 251, 232, 0.7) 0%, rgba(255, 240, 242, 0.7) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 55, 68, 0.18);
+  border-radius: var(--radius-inner);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.1rem;
+  box-shadow: 0 2px 10px rgba(226, 55, 68, 0.04);
+}
+
+.uh-verdict-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--zomato-red);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.uh-verdict-desc {
+  font-size: 0.96rem;
+  color: #27272A;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.uh-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.85rem;
+}
+
+.uh-highlight-chip {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  color: #1D4ED8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+}
+
+/* Skeleton Loading Animation */
+.uh-skeleton {
+  background: linear-gradient(90deg, #F4F4F5 25%, #E4E4E7 50%, #F4F4F5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .uh-nav-tabs { display: none; }
+  .uh-hero-card { padding: 2.2rem 1.5rem; }
+  .uh-hero-title { font-size: 2.3rem; }
+  .uh-cockpit-section { padding: 1.5rem; }
+  .uh-budget-matrix { grid-template-columns: repeat(2, 1fr); }
+  .uh-card { padding: 1.5rem; }
+}
