@@ -34,9 +34,8 @@ ENV/
 env.bak/
 venv.bak/
 
-# Data & cache (large files)
+# Data & cache (keep slim 2.8MB parquet committed for instant Render startup)
 data/raw/
-data/processed/*.parquet
 data/processed/*.csv
 
 # Testing & IDE

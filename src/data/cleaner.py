@@ -143,6 +143,13 @@ def clean_zomato_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     # 8. Deduplicate records keeping the highest voted one
     cleaned_df.sort_values(by="votes", ascending=False, inplace=True)
     cleaned_df.drop_duplicates(subset=["name", "location"], keep="first", inplace=True)
+
+    # 9. Drop heavy unused text columns to preserve lightweight memory footprint (< 10MB)
+    drop_cols = [c for c in ["reviews_list", "menu_item"] if c in cleaned_df.columns]
+    if drop_cols:
+        cleaned_df.drop(columns=drop_cols, inplace=True)
+
     cleaned_df.reset_index(drop=True, inplace=True)
 
     return cleaned_df
+
